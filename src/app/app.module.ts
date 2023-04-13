@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
   providers: [
     {
       provide: APP_BASE_HREF,
-      useValue: environment.production ? '/tyracraft-github-pages' : '..',
+      useValue: environment.production ? '/tyracraft' : '..',
     },
   ],
   bootstrap: [AppComponent],

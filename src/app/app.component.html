@@ -105,15 +105,13 @@
     <div class="container">
       <div class="row justify-content-center p-3">
         <div class="col-md-3">
-          <a href="https://github.com/Wellinator/tyracraft/releases/download/v0.1.7.21-pre-alpha/TyraCraft.-.v0.1.7.21.pre-alpha.elf"
-            target="_blank" type="button" class="btn btn-lg btn-success position-relative">
+          <a [href]="elfDownloadUlr" target="_blank" type="button" class="btn btn-lg btn-success position-relative">
             <i class="bi bi-download"></i> Download ELF
           </a>
-          <p><small>(pre-alpha v0.1.7.21)</small></p>
+          <p><small>({{tagName}})</small></p>
         </div>
         <div class="col-md-3">
-          <a href="https://github.com/Wellinator/tyracraft/releases/download/v0.1.7.21-pre-alpha/ASSETS.7z"
-            target="_blank" type="button" class="btn btn-lg btn-success">
+          <a [href]="assetsDownloadUlr" target="_blank" type="button" class="btn btn-lg btn-success">
             <i class="bi bi-file-zip-fill"></i> Assets
           </a>
           <p><small>7z assets </small></p>

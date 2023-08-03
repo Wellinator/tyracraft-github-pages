@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build-prod": "ng build --base-href=/tyracraft/",
     "build-test": "ng build",
+    "deploy": "ng deploy --base-href=/tyracraft-github-pages/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

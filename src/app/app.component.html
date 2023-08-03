@@ -43,6 +43,7 @@
         <button type="button" data-bs-target="#carouselPresentation" data-bs-slide-to="2" aria-label="Slide 3"></button>
         <button type="button" data-bs-target="#carouselPresentation" data-bs-slide-to="3" aria-label="Slide 4"></button>
         <button type="button" data-bs-target="#carouselPresentation" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselPresentation" data-bs-slide-to="5" aria-label="Slide 5"></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -78,6 +79,12 @@
             <h5>Island World</h5>
             <p>Many blocks for building you structures</p>
           </div>
+        </div>
+        <div class="carousel-item">
+          <img-comparison-slider tabindex="0" class="rendered">
+            <img slot="first" width="100%" [src]="baseHref + '/assets/img/no_vegetation.png'">
+            <img slot="second" width="100%" [src]="baseHref + '/assets/img/vegetation_and_AO.png'">
+          </img-comparison-slider>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselPresentation" data-bs-slide="prev">

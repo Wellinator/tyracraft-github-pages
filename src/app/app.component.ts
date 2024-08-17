@@ -13,6 +13,12 @@ interface Release {
   assets: Array<Assets>;
 }
 
+interface OldVersion {
+  tagName: string;
+  elfLink: string;
+  assestsLink: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,6 +30,8 @@ export class AppComponent implements OnInit {
   public tagName: string = '';
   public elfDownloadUlr: string = '';
   public assetsDownloadUlr: string = '';
+
+  public oldVersions: OldVersion[] = [];
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -44,15 +52,39 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.appService.getReleases().subscribe((response: Array<Release>) => {
-      const release = response[0];
-      this.tagName = release.tag_name;
-      release.assets.forEach((asset) => {
-        const fileExtension = asset.name.split('.').pop();
+      response.forEach((release: Release, index) => {
+        if (index == 0) {
+          this.tagName = release.tag_name;
+          release.assets.forEach((asset) => {
+            const fileExtension = asset.name.split('.').pop();
 
-        if (fileExtension === 'elf') {
-          this.elfDownloadUlr = asset.browser_download_url;
-        } else if (fileExtension === '7z') {
-          this.assetsDownloadUlr = asset.browser_download_url;
+            if (fileExtension === 'elf') {
+              this.elfDownloadUlr = asset.browser_download_url;
+            } else if (fileExtension === '7z') {
+              this.assetsDownloadUlr = asset.browser_download_url;
+            }
+          });
+        } else {
+          let tagName: string = '';
+          let elfLink: string = '';
+          let assestsLink: string = '';
+
+          tagName = release.tag_name;
+          release.assets.forEach((asset) => {
+            const fileExtension = asset.name.split('.').pop();
+
+            if (fileExtension === 'elf') {
+              elfLink = asset.browser_download_url;
+            } else if (fileExtension === '7z') {
+              assestsLink = asset.browser_download_url;
+            }
+          });
+
+          this.oldVersions.push({
+            tagName,
+            elfLink,
+            assestsLink,
+          });
         }
       });
     });

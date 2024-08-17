@@ -114,6 +114,10 @@
         <div class="col-md-3">
           <a [href]="elfDownloadUlr" target="_blank" type="button" class="btn btn-lg btn-success position-relative">
             <i class="bi bi-download"></i> Download ELF
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+              new!
+              <span class="visually-hidden">new</span>
+            </span>
           </a>
           <p><small>({{tagName}})</small></p>
         </div>
@@ -129,6 +133,44 @@
             <i class="bi bi-github"></i> Source Code
           </a>
           <p><small>GitHub</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-2 d-flex justify-content-center align-items-center flex-column" id="download">
+    <h1>Old versions</h1>
+
+    <div class="container">
+      <div class="row justify-content-center p-3">
+        <div class="col-md-12">
+
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Version</th>
+                <th scope="col">ELF</th>
+                <th scope="col">Assets</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rel of oldVersions">
+                <th scope="row">{{rel.tagName}}</th>
+                <td>
+                  <a [href]="rel.elfLink" target="_blank" type="button" class="btn btn-sm btn-info position-relative">
+                    <i class="bi bi-download"></i> ELF
+                  </a>
+                </td>
+                <td>
+                  <a [href]="rel.assestsLink" target="_blank" type="button"
+                    class="btn btn-sm btn-info position-relative">
+                    <i class="bi bi-file-zip-fill"></i> Assets (7z)
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>
